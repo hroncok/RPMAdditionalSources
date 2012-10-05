@@ -1,0 +1,9 @@
+
+[Desktop Entry]
+Name=Plate building tool
+GenericName=Plater
+Exec=plater
+Icon=/usr/share/pixmaps/plater.ico
+Terminal=false
+Type=Application
+Categories=Graphics;

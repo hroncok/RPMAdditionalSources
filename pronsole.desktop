@@ -1,0 +1,9 @@
+
+[Desktop Entry]
+Name=Printer console
+GenericName=Pronsole
+Exec=pronsole
+Icon=/usr/share/pixmaps/pronsole.ico
+Terminal=true
+Type=Application
+Categories=Graphics;
