@@ -1,4 +1,3 @@
 #!/bin/bash
-cd /usr/share/printrun
-python2 pronterface.py "$@"
+python2 /usr/share/printrun/pronterface.py "$@"
 exit $?
