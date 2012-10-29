@@ -1,7 +1,7 @@
 
 [Desktop Entry]
-Name=Printer console
-GenericName=Pronsole
+Name=Pronsole
+GenericName=Printer console
 Exec=pronsole
 Icon=/usr/share/pixmaps/pronsole.ico
 Terminal=true

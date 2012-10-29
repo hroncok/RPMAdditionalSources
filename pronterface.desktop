@@ -1,7 +1,7 @@
 
 [Desktop Entry]
-Name=Printer Interface
-GenericName=Pronterface
+Name=Pronterface
+GenericName=Printer Interface
 Exec=pronterface
 Icon=/usr/share/pixmaps/P-face.ico
 Terminal=false

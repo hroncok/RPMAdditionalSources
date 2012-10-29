@@ -1,7 +1,7 @@
 
 [Desktop Entry]
-Name=Plate building tool
-GenericName=Plater
+Name=Plater
+GenericName=Plate building tool
 Exec=plater
 Icon=/usr/share/pixmaps/plater.ico
 Terminal=false
