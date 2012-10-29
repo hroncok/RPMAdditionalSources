@@ -1,0 +1,9 @@
+
+[Desktop Entry]
+Name=Skeinforge
+GenericName=Slicing tool
+Exec=python /usr/share/skeinforge/skeinforge_application/skeinforge.py
+Icon=development_section
+Terminal=false
+Type=Application
+Categories=Graphics;
