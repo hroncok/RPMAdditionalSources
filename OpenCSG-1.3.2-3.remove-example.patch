@@ -1,0 +1,14 @@
+diff a/example/example.pro b/example/example.pro
+--- a/example/example.pro
++++ b/example/example.pro
+@@ -7 +7 @@
+-LIBS        += -L../lib -lopencsg -lglut -L../glew/lib -lGLEW
++LIBS        += -L../lib -lopencsg -lglut -L../glew/lib -lGLEW -lGLU
+diff a/opencsg.pro b/opencsg.pro
+--- a/opencsg.pro
++++ b/opencsg.pro
+@@ -1,2 +1,3 @@
+ TEMPLATE = subdirs
++CONFIG  += ordered
+-SUBDIRS  = src example
++SUBDIRS  = src
