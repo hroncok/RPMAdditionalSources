@@ -1,0 +1,51 @@
+diff -ru a/Makefile.PL b/Makefile.PL
+--- a/Makefile.PL	2010-10-16 17:00:51.000000000 +0200
++++ b/Makefile.PL	2012-11-19 18:50:56.799144883 +0100
+@@ -8,9 +8,7 @@
+ requires 'Digest::SHA' => 5.45;
+ 
+ tests 't/*.t';
+-author_tests 'xt';
+ 
+ build_requires 'Test::More';
+-use_test_base;
+ auto_include;
+ WriteAll;
+diff -ru a/MANIFEST b/MANIFEST
+--- a/MANIFEST	2011-08-09 19:42:20.000000000 +0200
++++ b/MANIFEST	2012-11-19 18:26:20.095827498 +0100
+@@ -2,23 +2,6 @@
+ examples/encryption.pl
+ examples/notify.pl
+ examples/subscribe.pl
+-inc/Module/Install.pm
+-inc/Module/Install/AuthorTests.pm
+-inc/Module/Install/Base.pm
+-inc/Module/Install/Can.pm
+-inc/Module/Install/Fetch.pm
+-inc/Module/Install/Include.pm
+-inc/Module/Install/Makefile.pm
+-inc/Module/Install/Metadata.pm
+-inc/Module/Install/TestBase.pm
+-inc/Module/Install/Win32.pm
+-inc/Module/Install/WriteAll.pm
+-inc/Spiffy.pm
+-inc/Test/Base.pm
+-inc/Test/Base/Filter.pm
+-inc/Test/Builder.pm
+-inc/Test/Builder/Module.pm
+-inc/Test/More.pm
+ lib/Growl/GNTP.pm
+ Makefile.PL
+ MANIFEST			This list of files
+diff -ru a/META.yml b/META.yml
+--- a/META.yml	2012-04-09 19:06:15.000000000 +0200
++++ b/META.yml	2012-11-19 18:26:54.032619120 +0100
+@@ -16,7 +16,6 @@
+ no_index:
+   directory:
+     - examples
+-    - inc
+     - t
+     - xt
+ requires:
