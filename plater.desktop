@@ -2,7 +2,7 @@
 [Desktop Entry]
 Name=Plater
 GenericName=Plate building tool
-Exec=plater
+Exec=plater.py
 Icon=/usr/share/pixmaps/plater.ico
 Terminal=false
 Type=Application
