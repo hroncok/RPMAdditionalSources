@@ -1,0 +1,36 @@
+diff -ru a/Build.PL b/Build.PL
+--- a/Build.PL	2012-12-26 15:31:43.000000000 +0100
++++ b/Build.PL	2012-12-29 15:49:20.306844474 +0100
+@@ -14,6 +14,8 @@
+   # _GLIBCXX_USE_C99 : to get the long long type for g++
+   # HAS_BOOL         : stops Perl/lib/CORE/handy.h from doing "#  define bool char" for MSVC
+   extra_compiler_flags => [qw(-D_GLIBCXX_USE_C99 -DHAS_BOOL)],
++  # Link it to libpolyclipping
++  extra_linker_flags => [qw(-lpolyclipping)],
+   # Provides extra C typemaps that are auto-merged
+   extra_typemap_modules => {
+     'ExtUtils::Typemaps::Default' => '0.05',
+diff -ru a/MANIFEST b/MANIFEST
+--- a/MANIFEST	2012-12-26 15:31:43.000000000 +0100
++++ b/MANIFEST	2012-12-29 15:50:54.963555010 +0100
+@@ -4,8 +4,6 @@
+ MANIFEST			This list of files
+ MANIFEST.SKIP
+ META.yml
+-src/clipper.cpp
+-src/clipper.hpp
+ src/myinit.h
+ src/poly2av.h
+ src/ppport.h
+diff -ru a/src/myinit.h b/src/myinit.h
+--- a/src/myinit.h	2012-12-26 15:31:43.000000000 +0100
++++ b/src/myinit.h	2012-12-29 15:48:17.674024173 +0100
+@@ -1,7 +1,7 @@
+ #ifndef __clipper_myinit_h_
+ #define __clipper_myinit_h_
+ 
+-#include "clipper.hpp"
++#include "polyclipping/clipper.hpp"
+ 
+ #include "poly2av.h"
+ 
