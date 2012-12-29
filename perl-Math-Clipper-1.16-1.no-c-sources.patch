@@ -30,7 +30,7 @@ diff -ru a/src/myinit.h b/src/myinit.h
  #define __clipper_myinit_h_
  
 -#include "clipper.hpp"
-+#include "polyclipping/clipper.hpp"
++#include <polyclipping/clipper.hpp>
  
  #include "poly2av.h"
  
