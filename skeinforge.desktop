@@ -2,7 +2,7 @@
 [Desktop Entry]
 Name=Skeinforge
 GenericName=Slicing tool
-Exec=python /usr/share/skeinforge/skeinforge_application/skeinforge.py
+Exec=python /usr/lib/python2.7/site-packages/skeinforge/skeinforge_application/skeinforge.py
 Icon=development_section
 Terminal=false
 Type=Application
