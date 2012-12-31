@@ -1,0 +1,9 @@
+
+[Desktop Entry]
+Name=RepetierHost
+GenericName=Repetier Host
+Exec=RepetierHost
+Icon=/usr/share/pixmaps/RepetierHost.ico
+Terminal=false
+Type=Application
+Categories=Graphics;
