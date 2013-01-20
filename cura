@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
-cd /usr/lib/python2.7/site-packages
-python -m Cura.cura $@
-exit $?
+#!/usr/bin/python
+import Cura.cura as cura
+cura.main()
