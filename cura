@@ -1,3 +1,5 @@
 #!/usr/bin/python
+import os
+os.chdir("/usr/lib/python2.7/site-packages/")
 import Cura.cura as cura
 cura.main()
