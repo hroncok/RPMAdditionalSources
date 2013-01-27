@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Using pypy, you can ignore Tkinter warnings"
+pypy /usr/lib/python2.7/site-packages/sfact/skeinforge_application/skeinforge_utilities/skeinforge_craft.py "$@"
+exit $?

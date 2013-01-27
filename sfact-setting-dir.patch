@@ -1,0 +1,29 @@
+Use ~/.sfact directory to store settings, not sfact_profiles in current pwd
+
+diff -ru a/fabmetheus_utilities/archive.py b/fabmetheus_utilities/archive.py
+--- a/fabmetheus_utilities/archive.py	2013-01-27 15:29:27.828406000 +0100
++++ b/fabmetheus_utilities/archive.py	2013-01-27 15:41:23.123273283 +0100
+@@ -18,9 +18,9 @@
+ __license__ = 'GNU Affero General Public License http://www.gnu.org/licenses/agpl.html'
+ 
+ 
+-globalTemporarySettingsPath = os.path.join(os.getcwd(), 'sfact_profiles')#(os.path.expanduser('~'), '.skeinforge')#thats default sfact way in own dir
++#globalTemporarySettingsPath = os.path.join(os.getcwd(), 'sfact_profiles')#thats default sfact way in own dir
+ #globalTemporarySettingsPath = os.path.join(os.path.expanduser('~'), '.skeinforge')#thats default sf way in home dir
+-#globalTemporarySettingsPath = os.path.join(os.path.expanduser('~'), '.sfact')#thats repetier compatible way in home dir
++globalTemporarySettingsPath = os.path.join(os.path.expanduser('~'), '.sfact')#thats repetier compatible way in home dir
+ 
+ 
+ def addToNamePathDictionary(directoryPath, namePathDictionary):
+diff -ru a/fabmetheus_utilities/settings.py b/fabmetheus_utilities/settings.py
+--- a/fabmetheus_utilities/settings.py	2013-01-27 15:29:27.841406000 +0100
++++ b/fabmetheus_utilities/settings.py	2013-01-27 16:25:31.395040468 +0100
+@@ -301,7 +301,7 @@
+ 		if repository.baseNameSynonym != None:
+ 			text = archive.getFileText(archive.getProfilesPath(getProfileName(repository.baseNameSynonym, repository)), False)
+ 	if text == '':
+-		print('The default %s will be written in the .skeinforge folder in the home directory.' % repository.title.lower() )
++		print('The default %s will be written in the .sfact folder in the home directory.' % repository.title.lower() )
+ 		text = archive.getFileText(getProfilesDirectoryInAboveDirectory(getProfileBaseName(repository)), False)
+ 		if text != '':
+ 			readSettingsFromText(repository, text)

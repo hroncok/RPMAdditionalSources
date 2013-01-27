@@ -1,0 +1,13 @@
+diff -ru a/fabmetheus_utilities/settings.py b/fabmetheus_utilities/settings.py
+--- a/fabmetheus_utilities/settings.py	2012-01-21 10:09:53.000000000 +0100
++++ b/fabmetheus_utilities/settings.py	2013-01-13 18:22:30.931700616 +0100
+@@ -2013,9 +2013,6 @@
+ 			executeButton = Tkinter.Button( root, activebackground = 'black', activeforeground = 'blue', text = repository.executeTitle, command = self.gridPosition.execute )
+ 			executeButton.grid( row = self.gridPosition.row, column = columnIndex, columnspan = 2, sticky = Tkinter.W )
+ 			columnIndex += 2
+-		self.helpButton = Tkinter.Button( root, activebackground = 'black', activeforeground = 'white', text = "?", command = HelpPageRepository(self.repository).openPage )
+-		self.helpButton.grid( row = self.gridPosition.row, column = columnIndex, sticky = Tkinter.W )
+-		self.closeListener.listenToWidget( self.helpButton )
+ 		columnIndex += 6
+ 		cancelButton = Tkinter.Button( root, activebackground = 'black', activeforeground = 'orange', command = self.cancel, fg = 'orange', text = 'Cancel')
+ 		cancelButton.grid( row = self.gridPosition.row, column = columnIndex )

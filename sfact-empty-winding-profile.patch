@@ -1,0 +1,8 @@
+Add an empty CSV file to avoid a runtime error on referencing
+skeinforge/skeinforge_application/profiles/winding/Free_Wire directory.
+
+--- /dev/null
++++ b/skeinforge_application/profiles/winding/Free_Wire/skeinforge.csv
+@@ -0,0 +1,2 @@
++Format is tab separated skeinforge settings.
++_Name                          	Value
