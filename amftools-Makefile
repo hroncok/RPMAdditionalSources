@@ -1,6 +1,8 @@
 CXX = g++
 CFLAGS = -O2 -g -pipe -Wall
 
+LIBS = -lGL -lzip
+
 INCLUDE = 	-Iinclude \
 			-Iinclude/muparser \
 			-Iinclude/stb_image \
@@ -55,7 +57,7 @@ dirs:
 	mkdir -p bin/stb_image 2>/dev/null || :
 
 libamf.so.0.0.0: $(patsubst %,bin/%.o, $(TARGETS))
-	$(CXX) -shared -Wl,-soname,libamf.so.0 $(CFLAGS) -o $@ $(patsubst %,bin/%.o, $(TARGETS))
+	$(CXX) $(CFLAGS) -shared -Wl,-soname,libamf.so.0 $^ $(LIBS) -o $@
 
 bin/Mes%.o: src/Mes%.cpp dirs
 	$(CXX) $(CFLAGS) $(INCLUDE) -DUSE_OPEN_GL -c -fPIC $< -o $@
