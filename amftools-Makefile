@@ -4,7 +4,6 @@ CFLAGS = -O2 -g -pipe -Wall
 LIBS = -lGL -lzip
 
 INCLUDE = 	-Iinclude \
-			-Iinclude/muparser \
 			-Iinclude/stb_image \
 			-Iinclude/zip \
 			-DLINUX \
@@ -39,15 +38,7 @@ TARGETS = \
 	XmlCompress \
 	XmlStream \
 	X3D_File \
-	muparser/muParserBase \
-	muparser/muParserBytecode \
-	muparser/muParserCallback \
-	muparser/muParser \
-	muparser/muParserError \
-	muparser/muParserTokenReader \
 	stb_image/stb_image \
-	zip/unzip-win \
-	zip/zip-win \
 
 all: libamf.so.0.0.0
 
