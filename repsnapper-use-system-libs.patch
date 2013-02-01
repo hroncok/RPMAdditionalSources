@@ -1,16 +1,28 @@
 diff -ru a/libraries/Makefile.am b/libraries/Makefile.am
 --- a/libraries/Makefile.am	2012-10-16 05:06:27.000000000 +0200
-+++ b/libraries/Makefile.am	2013-01-31 20:54:29.859650259 +0100
-@@ -1,6 +1,4 @@
++++ b/libraries/Makefile.am	2013-02-01 19:08:06.251882850 +0100
+@@ -1,6 +1,3 @@
  include libraries/lmfit/Makefile.am
  include libraries/libreprap/Makefile.am
 -include libraries/vmmlib/Makefile.am
 -include libraries/clipper/Makefile.am
  include libraries/poly2tri/Makefile.am
- include libraries/amf/Makefile.am
+-include libraries/amf/Makefile.am
+diff -ru a/src/files.cpp b/src/files.cpp
+--- a/src/files.cpp	2012-10-16 05:06:27.000000000 +0200
++++ b/src/files.cpp	2013-02-01 19:12:41.786133343 +0100
+@@ -509,7 +509,7 @@
+ #define ENABLE_AMF 1
+ 
+ #if ENABLE_AMF
+-#include "amf/amftools-code/include/AMF_File.h"
++#include "amf/AMF_File.h"
+  class AMFLoader : public AmfFile
+  {
+    double _scale;
 diff -ru a/src/Makefile.am b/src/Makefile.am
 --- a/src/Makefile.am	2012-10-16 05:06:27.000000000 +0200
-+++ b/src/Makefile.am	2013-01-31 20:53:47.924769774 +0100
++++ b/src/Makefile.am	2013-02-01 19:08:37.043799090 +0100
 @@ -14,7 +14,6 @@
  WARNING_FLAGS = -Wall -Wsign-compare -Wno-invalid-offsetof
  
@@ -24,7 +36,7 @@ diff -ru a/src/Makefile.am b/src/Makefile.am
  repsnapper_LDFLAGS = $(EXTRA_LDFLAGS)
  
 -repsnapper_LDADD = libreprap.la libclipper.la libpoly2tri.la liblmfit.la libamf.la $(OPENMP_CFLAGS) $(OPENVRML_LIBS) $(GTKMM_LIBS) $(GL_LIBS) $(XMLPP_LIBS) $(LIBZIP_LIBS) $(BOOST_LDFLAGS)
-+repsnapper_LDADD = libreprap.la libpoly2tri.la liblmfit.la libamf.la $(OPENMP_CFLAGS) $(OPENVRML_LIBS) $(GTKMM_LIBS) $(GL_LIBS) $(XMLPP_LIBS) $(LIBZIP_LIBS) $(BOOST_LDFLAGS) -lpolyclipping
++repsnapper_LDADD = libreprap.la libpoly2tri.la liblmfit.la $(OPENMP_CFLAGS) $(OPENVRML_LIBS) $(GTKMM_LIBS) $(GL_LIBS) $(XMLPP_LIBS) $(LIBZIP_LIBS) $(BOOST_LDFLAGS) -lpolyclipping -lamf
  
  repsnapperdatadir = $(datadir)/@PACKAGE@
  dist_repsnapperdata_DATA = src/repsnapper.ui
