@@ -1,0 +1,67 @@
+CXX = g++
+CFLAGS = -O2 -g -pipe -Wall
+
+INCLUDE = 	-Iinclude \
+			-Iinclude/muparser \
+			-Iinclude/stb_image \
+			-Iinclude/zip \
+			-DLINUX \
+
+TARGETS = \
+	Amf \
+	AMF_File \
+	Equation \
+	Mesh \
+	MeshSlice \
+	MeshTree \
+	nAmf \
+	nColor \
+	nComposite \
+	nConstellation \
+	nCoordinates \
+	nEdge \
+	nInstance \
+	nMaterial \
+	nMesh \
+	nMetadata \
+	nNormal \
+	nObject \
+	nTexmap \
+	nTexture \
+	nTriangle \
+	nVertex \
+	nVertices \
+	nVolume \
+	SimpleImage \
+	STL_File \
+	XmlCompress \
+	XmlStream \
+	X3D_File \
+	muparser/muParserBase \
+	muparser/muParserBytecode \
+	muparser/muParserCallback \
+	muparser/muParser \
+	muparser/muParserError \
+	muparser/muParserTokenReader \
+	stb_image/stb_image \
+	zip/unzip-win \
+	zip/zip-win \
+
+all: libamf.so.0.0.0
+
+dirs:
+	mkdir -p bin/muparser 2>/dev/null || :
+	mkdir -p bin/zip 2>/dev/null || :
+	mkdir -p bin/stb_image 2>/dev/null || :
+
+libamf.so.0.0.0: $(patsubst %,bin/%.o, $(TARGETS))
+	$(CXX) -shared -Wl,-soname,libamf.so.0 $(CFLAGS) -o $@ $(patsubst %,bin/%.o, $(TARGETS))
+
+bin/Mes%.o: src/Mes%.cpp dirs
+	$(CXX) $(CFLAGS) $(INCLUDE) -DUSE_OPEN_GL -c -fPIC $< -o $@
+
+bin/%.o: src/%.cpp dirs
+	$(CXX) $(CFLAGS) $(INCLUDE) -c -fPIC $< -o $@
+
+clean:
+	rm -rf bin libamf.so.0.0.0
