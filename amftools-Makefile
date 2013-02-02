@@ -1,11 +1,9 @@
 CXX = g++
 CFLAGS = -O2 -g -pipe -Wall
 
-LIBS = -lGL -lzip
+LIBS = -lGL -lzip -lstbi
 
 INCLUDE = 	-Iinclude \
-			-Iinclude/stb_image \
-			-Iinclude/zip \
 			-DLINUX \
 
 TARGETS = \
@@ -38,23 +36,17 @@ TARGETS = \
 	XmlCompress \
 	XmlStream \
 	X3D_File \
-	stb_image/stb_image \
 
 all: libamf.so.0.0.0
-
-dirs:
-	mkdir -p bin/muparser 2>/dev/null || :
-	mkdir -p bin/zip 2>/dev/null || :
-	mkdir -p bin/stb_image 2>/dev/null || :
 
 libamf.so.0.0.0: $(patsubst %,bin/%.o, $(TARGETS))
 	$(CXX) $(CFLAGS) -shared -Wl,-soname,libamf.so.0 $^ $(LIBS) -o $@
 
-bin/Mes%.o: src/Mes%.cpp dirs
+bin/Mes%.o: src/Mes%.cpp
 	$(CXX) $(CFLAGS) $(INCLUDE) -DUSE_OPEN_GL -c -fPIC $< -o $@
 
-bin/%.o: src/%.cpp dirs
+bin/%.o: src/%.cpp
 	$(CXX) $(CFLAGS) $(INCLUDE) -c -fPIC $< -o $@
 
 clean:
-	rm -rf bin libamf.so.0.0.0
+	rm -rf bin/* libamf.so.0.0.0
