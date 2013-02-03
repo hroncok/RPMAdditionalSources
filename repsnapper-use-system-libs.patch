@@ -1,8 +1,8 @@
 diff -ru a/libraries/Makefile.am b/libraries/Makefile.am
 --- a/libraries/Makefile.am	2012-10-16 05:06:27.000000000 +0200
-+++ b/libraries/Makefile.am	2013-02-01 19:08:06.251882850 +0100
-@@ -1,6 +1,3 @@
- include libraries/lmfit/Makefile.am
++++ b/libraries/Makefile.am	2013-02-03 20:26:47.519594381 +0100
+@@ -1,6 +1,2 @@
+-include libraries/lmfit/Makefile.am
  include libraries/libreprap/Makefile.am
 -include libraries/vmmlib/Makefile.am
 -include libraries/clipper/Makefile.am
@@ -22,7 +22,7 @@ diff -ru a/src/files.cpp b/src/files.cpp
     double _scale;
 diff -ru a/src/Makefile.am b/src/Makefile.am
 --- a/src/Makefile.am	2012-10-16 05:06:27.000000000 +0200
-+++ b/src/Makefile.am	2013-02-01 19:08:37.043799090 +0100
++++ b/src/Makefile.am	2013-02-03 20:27:18.318505594 +0100
 @@ -14,7 +14,6 @@
  WARNING_FLAGS = -Wall -Wsign-compare -Wno-invalid-offsetof
  
@@ -36,7 +36,7 @@ diff -ru a/src/Makefile.am b/src/Makefile.am
  repsnapper_LDFLAGS = $(EXTRA_LDFLAGS)
  
 -repsnapper_LDADD = libreprap.la libclipper.la libpoly2tri.la liblmfit.la libamf.la $(OPENMP_CFLAGS) $(OPENVRML_LIBS) $(GTKMM_LIBS) $(GL_LIBS) $(XMLPP_LIBS) $(LIBZIP_LIBS) $(BOOST_LDFLAGS)
-+repsnapper_LDADD = libreprap.la libpoly2tri.la liblmfit.la $(OPENMP_CFLAGS) $(OPENVRML_LIBS) $(GTKMM_LIBS) $(GL_LIBS) $(XMLPP_LIBS) $(LIBZIP_LIBS) $(BOOST_LDFLAGS) -lpolyclipping -lamf
++repsnapper_LDADD = libreprap.la libpoly2tri.la $(OPENMP_CFLAGS) $(OPENVRML_LIBS) $(GTKMM_LIBS) $(GL_LIBS) $(XMLPP_LIBS) $(LIBZIP_LIBS) $(BOOST_LDFLAGS) -lpolyclipping -lamf -llmmin
  
  repsnapperdatadir = $(datadir)/@PACKAGE@
  dist_repsnapperdata_DATA = src/repsnapper.ui
