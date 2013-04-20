@@ -13,7 +13,7 @@ cd Cura
 
 # Remove CC BY-NC content
 # It cannot be shipped with/in Fedora, as it has use restrictions 
-rm -f resources/meshes/ultimaker_platform.stl
+rm -f resources/meshes/*
 rm -f resources/example/UltimakerRobot_support.stl
 
 # Drop the note about the removal
@@ -24,8 +24,7 @@ FILES=`grep -r "UltimakerRobot_support.stl" . | cut -f1 -d: | sort | uniq | grep
 sed -i 's/UltimakerRobot_support.stl/UltimakerHandle.stl/g' $FILES
 
 # Remove the firmware
-# It is GNU GPLv3 but has no source
-# And it is binary, so it is prohibited in Fedora
+# It is binary, so it is prohibited in Fedora
 rm -rf resources/firmware
 
 cd ../..
