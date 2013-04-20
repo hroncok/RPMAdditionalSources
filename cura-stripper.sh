@@ -11,6 +11,9 @@ rm -rf pypy
 
 cd Cura
 
+# Remove *.pyc
+find -name \*.pyc -delete
+
 # Remove CC BY-NC content
 # It cannot be shipped with/in Fedora, as it has use restrictions 
 rm -f resources/meshes/*
@@ -20,7 +23,7 @@ rm -f resources/example/UltimakerRobot_support.stl
 echo -e '\n\nPlease note, that files under the terms of CC BY-NC has been removed form this Fedora package for legal reasons.' >> resources/example/Attribution.txt
 
 # Use free UltimakerHandle.stl instead of UltimakerRobot_support.stl
-FILES=`grep -r "UltimakerRobot_support.stl" . | cut -f1 -d: | sort | uniq | grep -v Attribution.txt | tr '\n' ' '`
+FILES=`grep -Ir "UltimakerRobot_support.stl" . | cut -f1 -d: | sort | uniq | grep -v Attribution.txt | tr '\n' ' '`
 sed -i 's/UltimakerRobot_support.stl/UltimakerHandle.stl/g' $FILES
 
 # Remove the firmware
