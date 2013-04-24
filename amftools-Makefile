@@ -37,9 +37,9 @@ TARGETS = \
 	XmlStream \
 	X3D_File \
 
-all: libamf.so.0.0.0
+all: libamf.so.0.0
 
-libamf.so.0.0.0: $(patsubst %,bin/%.o, $(TARGETS))
+libamf.so.0.0: $(patsubst %,bin/%.o, $(TARGETS))
 	$(CXX) $(CFLAGS) -shared -Wl,-soname,libamf.so.0 $^ $(LIBS) -o $@
 
 bin/Mes%.o: src/Mes%.cpp
@@ -49,4 +49,4 @@ bin/%.o: src/%.cpp
 	$(CXX) $(CFLAGS) $(INCLUDE) -c -fPIC $< -o $@
 
 clean:
-	rm -rf bin/* libamf.so.0.0.0
+	rm -rf bin/* libamf.so.0.0
