@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -O2 -g -pipe -Wall
 
-LIBS = -lGL -lzip -lstbi
+LIBS = -lGL -lzip -lstbi -lmuparser
 
 INCLUDE = 	-Iinclude \
 			-DLINUX \
