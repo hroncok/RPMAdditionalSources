@@ -1,0 +1,228 @@
+Return-Path: dansunday1@gmail.com
+Received: from zmta05.collab.prod.int.phx2.redhat.com (LHLO
+ zmta05.collab.prod.int.phx2.redhat.com) (10.5.81.12) by
+ zmail18.collab.prod.int.phx2.redhat.com with LMTP; Tue, 7 May 2013 23:41:22
+ -0400 (EDT)
+Received: from zmta05.collab.prod.int.phx2.redhat.com (localhost [127.0.0.1])
+	by zmta05.collab.prod.int.phx2.redhat.com (Postfix) with ESMTP id B5A40F25CF
+	for <mhroncok@redhat.com>; Tue,  7 May 2013 23:41:22 -0400 (EDT)
+Received: from int-mx10.intmail.prod.int.phx2.redhat.com (int-mx10.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	by zmta05.collab.prod.int.phx2.redhat.com (Postfix) with ESMTP id B1729F25C8
+	for <mhroncok@mail.corp.redhat.com>; Tue,  7 May 2013 23:41:22 -0400 (EDT)
+Received: from mx1.redhat.com (ext-mx13.extmail.prod.ext.phx2.redhat.com [10.5.110.18])
+	by int-mx10.intmail.prod.int.phx2.redhat.com (8.14.4/8.14.4) with ESMTP id r483fMqs032082
+	for <mhroncok@redhat.com>; Tue, 7 May 2013 23:41:22 -0400
+Received: from mail-wg0-f44.google.com (mail-wg0-f44.google.com [74.125.82.44])
+	by mx1.redhat.com (8.14.4/8.14.4) with ESMTP id r483fKxE009495
+	for <mhroncok@redhat.com>; Tue, 7 May 2013 23:41:21 -0400
+Received: by mail-wg0-f44.google.com with SMTP id z12so1395953wgg.35
+        for <mhroncok@redhat.com>; Tue, 07 May 2013 20:41:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:x-received:in-reply-to:references:date:message-id
+         :subject:from:to:content-type;
+        bh=6r7iqnVb+eFZXbMpbLUw+G2wauVIqBIFRZ9CMpr8pGg=;
+        b=NKgs4kqWk3gxIrwGhq2+nWh6cQ+Ljy8CU2nefmEoXfGFiaAE0TfhWCEaQMmNthe/zk
+         pCP/q9jR54RTE3Zcl87EDH2pxnUvzG5DL1hVZo+ZUjv/KBsEXD4lBKAM/Shl+oWxUR01
+         8O4vvnqoMxtyM7F4xi0Td0t4bxl9haD7DyNIg/nTh5gxAk+UT6MR+EHTf/DM03PUwx8Q
+         xL3D3xRH7nOvshi9HiVxcp9psF+fT9dWHDA+HaZ3cd54mz+5TP6rhtDoXvCyekZSmRrG
+         BeQZtAFMPXjgDalNSoRTe8404148rueUYYeNHBcSnHpL7s8k3S0uKw4BHIYgDRB2Ap9o
+         1mDg==
+MIME-Version: 1.0
+X-Received: by 10.194.109.103 with SMTP id hr7mr2154314wjb.0.1367984480202;
+ Tue, 07 May 2013 20:41:20 -0700 (PDT)
+Received: by 10.194.85.45 with HTTP; Tue, 7 May 2013 20:41:20 -0700 (PDT)
+In-Reply-To: <5189002C.6010300@redhat.com>
+References: <5189002C.6010300@redhat.com>
+Date: Tue, 7 May 2013 23:41:20 -0400
+Message-ID: <CA+zHhcdwWofQ9gJfSQMuDS1QMnQv3Yr2HqhugnpeXyLDd4-Nog@mail.gmail.com>
+Subject: Re: Question about "Copyright 2001, softSurfer (www.softsurfer.com) ..."
+From: Dan Sunday <dansunday1@gmail.com>
+To: =?UTF-8?Q?Miro_Hron=C4=8Dok?= <mhroncok@redhat.com>
+Content-Type: multipart/alternative; boundary=047d7bf1988200339604dc2cb5b3
+X-RedHat-Spam-Score: -2.448  (BAYES_00,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,FREEMAIL_ENVFROM_END_DIGIT,FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_LOW,SPF_PASS,URIBL_BLOCKED)
+X-Scanned-By: MIMEDefang 2.68 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.68 on 10.5.110.18
+
+--047d7bf1988200339604dc2cb5b3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Miro,
+    Yes, I am the right person to ask. The website and code is mine alone,
+and no one else is or has been involved. SoftSurfer is a registered DBA
+name I have been using. However, in the past year, I have rehosted and
+refactored the softsurfer.com site to geomalgorithms.com.
+
+Your request is reasonable. For use in RepSnapper, the copyright statement
+for any code on my site can now read:
+
+// Copyright 2001 softSurfer, 2012-13 Dan Sunday
+// This code may be freely used, distributed and modified for any
+// purpose providing that this copyright notice is included with it.
+// SoftSurfer makes no warranty for this code, and cannot be held
+// liable for any real or imagined damage resulting from its use.
+// Users of this code must verify correctness for their application.
+
+I will likely make this wording change on the website.
+
+One small request. If you make any significant modifications to the code
+that would improve the code presented on my site, I would appreciate it if
+you would send them to me (only if you want to).
+
+Best Wishes,
+Dan Sunday
+
+
+On Tue, May 7, 2013 at 9:22 AM, Miro Hron=C4=8Dok <mhroncok@redhat.com> wro=
+te:
+
+> Hi,
+> first of all, are you the right person to ask for permissions and license
+> stuff for code, that's copyrighted like this:
+>
+>     Copyright 2001, softSurfer (www.softsurfer.com)
+>     This code may be freely used and modified for any purpose
+>     providing that this copyright notice is included with it.
+>     SoftSurfer makes no warranty for this code, and cannot be held
+>     liable for any real or imagined damage resulting from its use.
+>     Users of this code must verify correctness for their
+>     application.
+>
+> ? If not, do you know, who should I ask?
+>
+> Now to my problem/request. I'm packaging RepSnapper [0] for Fedora. Fedor=
+a
+> is very strict about legal / license issues.
+>
+> RepSnapper uses some functions copyrighted as above [1].
+>
+> The problem, that Fedora care about, is that there is no explicit
+> permission to distribute the code.
+>
+> Is there any chance you can change:
+>
+>     freely used and modified
+>
+> to:
+>
+>     freely used, distributed and modified
+>
+> ?
+>
+> You basically don't need to change anything on your website or in your
+> code (unless you want to). All I need is an e-mail from you, saying you a=
+re
+> the copyright holder of softSurfer code and that you give me the permissi=
+on
+> to use your code in RepSanpper under the terms of [insert modified versio=
+n
+> of copyright notice here].
+>
+> Thanks you very much for your cooperation,
+> Miro Hron=C4=8Dok
+>
+> [0] https://github.com/timschmidt/**repsnapper<https://github.com/timschm=
+idt/repsnapper>
+> [1] https://github.com/timschmidt/**repsnapper/blob/master/**licensing.tx=
+t<https://github.com/timschmidt/repsnapper/blob/master/licensing.txt>
+>
+> --
+> Miro Hron=C4=8Dok
+> --
+> Phone: +420777974800
+> Jabber: miro@hroncok.cz
+>
+
+--047d7bf1988200339604dc2cb5b3
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div><div><div><div><div><div>Miro,<br></div>=C2=A0=C2=A0=
+=C2=A0 Yes, I am the right person to ask. The website and code is mine alon=
+e, and no one else is or has been involved. SoftSurfer is a registered DBA =
+name I have been using. However, in the past year, I have rehosted and refa=
+ctored the <a href=3D"http://softsurfer.com" target=3D"_blank">softsurfer.c=
+om</a> site to <a href=3D"http://geomalgorithms.com" target=3D"_blank">geom=
+algorithms.com</a>. <br>
+
+<br></div>Your request is reasonable. For use in RepSnapper, the copyright =
+statement for any code on my site can now read:<br><br>// Copyright 2001 so=
+ftSurfer, 2012-13 Dan Sunday<br>// This code may be freely used, distribute=
+d and modified for any<br>
+// purpose providing that this copyright notice is included with it.<br>// =
+SoftSurfer makes no warranty for this code, and cannot be held<br>// liable=
+ for any real or imagined damage resulting from its use.<br>// Users of thi=
+s code must verify correctness for their application.<br>
+<br></div>I will likely make this wording change on the website.<br><br></d=
+iv>One small request. If you make any significant modifications to the code=
+ that would improve the code presented on my site, I would appreciate it if=
+ you would send them to me (only if you want to).<br>
+<br></div>Best Wishes,<br></div>Dan Sunday<br></div><div class=3D"gmail_ext=
+ra"><br><br><div class=3D"gmail_quote">On Tue, May 7, 2013 at 9:22 AM, Miro=
+ Hron=C4=8Dok <span dir=3D"ltr">&lt;<a href=3D"mailto:mhroncok@redhat.com" =
+target=3D"_blank">mhroncok@redhat.com</a>&gt;</span> wrote:<br>
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">Hi,<br>
+first of all, are you the right person to ask for permissions and license s=
+tuff for code, that&#39;s copyrighted like this:<br>
+<br>
+=C2=A0 =C2=A0 Copyright 2001, softSurfer (<a href=3D"http://www.softsurfer.=
+com" target=3D"_blank">www.softsurfer.com</a>)<br>
+=C2=A0 =C2=A0 This code may be freely used and modified for any purpose<br>
+=C2=A0 =C2=A0 providing that this copyright notice is included with it.<br>
+=C2=A0 =C2=A0 SoftSurfer makes no warranty for this code, and cannot be hel=
+d<br>
+=C2=A0 =C2=A0 liable for any real or imagined damage resulting from its use=
+.<br>
+=C2=A0 =C2=A0 Users of this code must verify correctness for their<br>
+=C2=A0 =C2=A0 application.<br>
+<br>
+? If not, do you know, who should I ask?<br>
+<br>
+Now to my problem/request. I&#39;m packaging RepSnapper [0] for Fedora. Fed=
+ora is very strict about legal / license issues.<br>
+<br>
+RepSnapper uses some functions copyrighted as above [1].<br>
+<br>
+The problem, that Fedora care about, is that there is no explicit permissio=
+n to distribute the code.<br>
+<br>
+Is there any chance you can change:<br>
+<br>
+=C2=A0 =C2=A0 freely used and modified<br>
+<br>
+to:<br>
+<br>
+=C2=A0 =C2=A0 freely used, distributed and modified<br>
+<br>
+?<br>
+<br>
+You basically don&#39;t need to change anything on your website or in your =
+code (unless you want to). All I need is an e-mail from you, saying you are=
+ the copyright holder of softSurfer code and that you give me the permissio=
+n to use your code in RepSanpper under the terms of [insert modified versio=
+n of copyright notice here].<br>
+
+<br>
+Thanks you very much for your cooperation,<br>
+Miro Hron=C4=8Dok<br>
+<br>
+[0] <a href=3D"https://github.com/timschmidt/repsnapper" target=3D"_blank">=
+https://github.com/timschmidt/<u></u>repsnapper</a><br>
+[1] <a href=3D"https://github.com/timschmidt/repsnapper/blob/master/licensi=
+ng.txt" target=3D"_blank">https://github.com/timschmidt/<u></u>repsnapper/b=
+lob/master/<u></u>licensing.txt</a><span class=3D"HOEnZb"><font color=3D"#8=
+88888"><br>
+
+<br>
+-- <br>
+Miro Hron=C4=8Dok<br>
+--<br>
+Phone: <a href=3D"tel:%2B420777974800" value=3D"+420777974800" target=3D"_b=
+lank">+420777974800</a><br>
+Jabber: <a href=3D"mailto:miro@hroncok.cz" target=3D"_blank">miro@hroncok.c=
+z</a><br>
+</font></span></blockquote></div><br></div>
+
+--047d7bf1988200339604dc2cb5b3--
