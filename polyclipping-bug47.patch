@@ -1,0 +1,20 @@
+diff --git a/cpp/clipper.cpp b/cpp/clipper.cpp
+index 02a7b70..aa146ea 100644
+--- a/cpp/clipper.cpp
++++ b/cpp/clipper.cpp
+@@ -896,13 +896,14 @@ bool ClipperBase::AddPolygon(const Polygon &pg, PolyType polyType)
+     RangeTest(pg[i], maxVal);
+ 
+     if (i == 0 || PointsEqual(p[j], pg[i])) continue;
+-    else if (j > 0 && SlopesEqual(p[j-1], p[j], pg[i], m_UseFullRange))
++    else if (j > 0 && SlopesEqual(p[j-1], p[j], pg[i], maxVal == hiRange))
+     {
+       if (PointsEqual(p[j-1], pg[i])) j--;
+     } else j++;
+     p[j] = pg[i];
+   }
+   if (j < 2) return false;
++  m_UseFullRange = (maxVal == hiRange);
+ 
+   len = j+1;
+   while (len > 2)
