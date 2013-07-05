@@ -1,0 +1,25 @@
+diff --git a/src/lib/reader_mem.c b/src/lib/reader_mem.c
+index 2802673..2d1cd68 100644
+--- a/src/lib/reader_mem.c
++++ b/src/lib/reader_mem.c
+@@ -71,20 +71,4 @@ static int mem_reader(void *dest,size_t length,ops_error_t **errors,
+ static void mem_destroyer(ops_reader_info_t *rinfo)
+     { free(ops_reader_get_arg(rinfo)); }
+ 
+-/**
+-   \ingroup Core_Readers_First
+-   \brief Starts stack with memory reader
+-*/
+-
+-void ops_reader_set_memory(ops_parse_info_t *pinfo,const void *buffer,
+-			   size_t length)
+-    {
+-    reader_mem_arg_t *arg=malloc(sizeof *arg);
+-
+-    arg->buffer=buffer;
+-    arg->length=length;
+-    arg->offset=0;
+-    ops_reader_set(pinfo,mem_reader,mem_destroyer,arg);
+-    }
+-
+ /* eof */
