@@ -1,0 +1,74 @@
+Index: libretroshare/src/libretroshare.pro
+===================================================================
+--- libretroshare/src/libretroshare.pro	(revision 6270)
++++ libretroshare/src/libretroshare.pro	(working copy)
+@@ -123,6 +123,9 @@ linux-* {
+ 	OPENPGPSDK_DIR = ../../openpgpsdk/src
+ 	INCLUDEPATH *= $${OPENPGPSDK_DIR} ../openpgpsdk
+ 
++	# This line fixes compilation on openSUSE 64bit
++	INCLUDEPATH *= /usr/lib64/glib-2.0/include
++
+ 	DESTDIR = lib
+ 	QMAKE_CXXFLAGS *= -Wall -D_FILE_OFFSET_BITS=64
+ 	QMAKE_CC = g++
+@@ -157,7 +160,7 @@ linux-* {
+ 
+ 	DEFINES *= UBUNTU
+ 	INCLUDEPATH += /usr/include/glib-2.0/ /usr/lib/glib-2.0/include
+-	LIBS *= -lgnome-keyring
++	LIBS *= -lgnome-keyring -ldl
+ }
+ 
+ linux-g++ {
+Index: libretroshare/src/pqi/p3peermgr.cc
+===================================================================
+--- libretroshare/src/pqi/p3peermgr.cc	(revision 6270)
++++ libretroshare/src/pqi/p3peermgr.cc	(working copy)
+@@ -63,7 +63,7 @@ const uint32_t MIN_TIME_BETWEEN_NET_RESET = 		5;
+ 
+ const uint32_t PEER_IP_CONNECT_STATE_MAX_LIST_SIZE =     	4;
+ 
+-#define VERY_OLD_PEER  (90 * 24 * 3600)      // 90 days.
++#define VERY_OLD_PEER  (3 * 365 * 24 * 3600)      // 3 years.
+ 
+ /****
+  * #define PEER_DEBUG 1
+Index: plugins/Common/retroshare_plugin.pri
+===================================================================
+--- plugins/Common/retroshare_plugin.pri	(revision 6270)
++++ plugins/Common/retroshare_plugin.pri	(working copy)
+@@ -3,9 +3,11 @@ TEMPLATE = lib
+ INCLUDEPATH += ../../libretroshare/src/ ../../retroshare-gui/src/
+ 
+ linux-g++ {
++	QMAKE_LFLAGS -= -Wl,--no-undefined
+ 	LIBS *= -ldl
+ }
+ linux-g++-64 {
++	QMAKE_LFLAGS -= -Wl,--no-undefined
+ 	LIBS *= -ldl
+ }
+ 
+Index: retroshare-nogui/src/retroshare-nogui.pro
+===================================================================
+--- retroshare-nogui/src/retroshare-nogui.pro	(revision 6270)
++++ retroshare-nogui/src/retroshare-nogui.pro	(working copy)
+@@ -27,7 +27,7 @@ linux-* {
+ 
+ 	LIBS += ../../libretroshare/src/lib/libretroshare.a
+ 	LIBS += ../../openpgpsdk/src/lib/libops.a -lbz2
+-	LIBS += -lssl -lupnp -lixml -lgnome-keyring
++	LIBS += -lssl -lupnp -lixml -lgnome-keyring -lpthread
+ 	LIBS *= -lcrypto -ldl -lz
+ 
+ 	gxs {
+@@ -173,7 +173,7 @@ sshserver {
+ 		LIBS += -lssh
+ 		LIBS += -lssh_threads
+ 	} else {
+-		SSH_OK = $$system(pkg-config --atleast-version 0.5.4 libssh && echo yes)
++		SSH_OK = $$system(pkg-config --atleast-version 0.5 libssh && echo yes)
+ 		isEmpty(SSH_OK) {
+ 			exists($$LIBSSH_DIR/build/src/libssh.a):exists($$LIBSSH_DIR/build/src/threads/libssh_threads.a) {
+ 				LIBS += $$LIBSSH_DIR/build/src/libssh.a

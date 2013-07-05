@@ -1,0 +1,143 @@
+diff --git a/libretroshare/src/libretroshare.pro b/libretroshare/src/libretroshare.pro
+index e049ed5..f93bbca 100644
+--- a/libretroshare/src/libretroshare.pro
++++ b/libretroshare/src/libretroshare.pro
+@@ -68,10 +68,8 @@ SOURCES +=	tcponudp/udppeer.cc \
+ 		tcponudp/udprelay.cc \
+ 
+ 
+-        BITDHT_DIR = ../../libbitdht/src
++        BITDHT_DIR = /usr/include/bitdht
+ 	INCLUDEPATH += . $${BITDHT_DIR}
+-	# The next line is for compliance with debian packages. Keep it!
+-	INCLUDEPATH += ../libbitdht
+ 	DEFINES *= RS_USE_BITDHT
+ }
+ 
+@@ -120,9 +118,6 @@ linux-* {
+ 	# These two lines fixe compilation on ubuntu natty. Probably a ubuntu packaging error.
+ 	INCLUDEPATH += $$system(pkg-config --cflags glib-2.0 | sed -e "s/-I//g")
+ 
+-	OPENPGPSDK_DIR = ../../openpgpsdk/src
+-	INCLUDEPATH *= $${OPENPGPSDK_DIR} ../openpgpsdk
+-
+ 	# This line fixes compilation on openSUSE 64bit
+ 	INCLUDEPATH *= /usr/lib64/glib-2.0/include
+ 
+@@ -160,7 +155,7 @@ linux-* {
+ 
+ 	DEFINES *= UBUNTU
+ 	INCLUDEPATH += /usr/include/glib-2.0/ /usr/lib/glib-2.0/include
+-	LIBS *= -lgnome-keyring -ldl
++	LIBS *= -lgnome-keyring -ldl -lbitdht
+ }
+ 
+ linux-g++ {
+@@ -232,9 +227,8 @@ win32 {
+ 	PTHREADS_DIR = ../../../pthreads-w32-2-8-0-release
+ 	ZLIB_DIR = ../../../zlib-1.2.3
+ 	SSL_DIR = ../../../openssl-1.0.1c
+-	OPENPGPSDK_DIR = ../../openpgpsdk/src
+-
+-	INCLUDEPATH += . $${SSL_DIR}/include $${UPNPC_DIR} $${PTHREADS_DIR} $${ZLIB_DIR} $${OPENPGPSDK_DIR}
++	
++	INCLUDEPATH += . $${SSL_DIR}/include $${UPNPC_DIR} $${PTHREADS_DIR} $${ZLIB_DIR}
+ 
+ 	# SQLite include path is required to compile GXS.
+ 	gxs {
+@@ -267,11 +261,8 @@ mac {
+ 		#GPG_ERROR_DIR = ../../../../libgpg-error-1.7
+ 		#GPGME_DIR  = ../../../../gpgme-1.1.8
+ 
+-		OPENPGPSDK_DIR = ../../openpgpsdk/src
+-
+ 		INCLUDEPATH += . $${UPNPC_DIR} 
+-		INCLUDEPATH += $${OPENPGPSDK_DIR} 
+-
++		
+ 		#../openpgpsdk
+ 		#INCLUDEPATH += . $${UPNPC_DIR} $${GPGME_DIR}/src $${GPG_ERROR_DIR}/src
+ }
+diff --git a/retroshare-gui/src/retroshare-gui.pro b/retroshare-gui/src/retroshare-gui.pro
+index 636d3ba..5ba8c3f 100644
+--- a/retroshare-gui/src/retroshare-gui.pro
++++ b/retroshare-gui/src/retroshare-gui.pro
+@@ -56,10 +56,9 @@ linux-* {
+ 	QMAKE_CXXFLAGS *= -D_FILE_OFFSET_BITS=64
+ 
+ 	PRE_TARGETDEPS *= ../../libretroshare/src/lib/libretroshare.a
+-	PRE_TARGETDEPS *= ../../openpgpsdk/src/lib/libops.a
+ 
+ 	LIBS += ../../libretroshare/src/lib/libretroshare.a
+-	LIBS += ../../openpgpsdk/src/lib/libops.a -lbz2
++	LIBS += -lops -lbz2
+ 	LIBS += -lssl -lupnp -lixml -lXss -lgnome-keyring
+ 	LIBS *= -lcrypto -ldl -lX11 -lz
+ 
+@@ -141,10 +140,9 @@ win32 {
+ 	#QTPLUGIN += qjpeg
+ 
+ 	PRE_TARGETDEPS *= ../../libretroshare/src/lib/libretroshare.a
+-	PRE_TARGETDEPS *= ../../openpgpsdk/src/lib/libops.a
+ 
+ 	LIBS += ../../libretroshare/src/lib/libretroshare.a
+-	LIBS += ../../openpgpsdk/src/lib/libops.a -lbz2
++	LIBS += -lops -lbz2
+ 	LIBS += -L"../../../lib"
+ 	LIBS += -lssl -lcrypto -lpthreadGC2d -lminiupnpc -lz
+ # added after bitdht
+@@ -178,7 +176,7 @@ macx {
+ 
+ 	CONFIG += version_detail_bash_script
+ 	LIBS += ../../libretroshare/src/lib/libretroshare.a
+-	LIBS += ../../openpgpsdk/src/lib/libops.a -lbz2
++	LIBS += -lops -lbz2
+         LIBS += -lssl -lcrypto -lz 
+         #LIBS += -lssl -lcrypto -lz -lgpgme -lgpg-error -lassuan
+ 	LIBS += ../../../miniupnpc-1.0/libminiupnpc.a
+@@ -224,8 +222,8 @@ freebsd-* {
+ # ###########################################
+ 
+ bitdht {
+-	LIBS += ../../libbitdht/src/lib/libbitdht.a
+-	PRE_TARGETDEPS *= ../../libbitdht/src/lib/libbitdht.a
++	LIBS += -lbitdht
++	INCLUDEPATH += /usr/include/bitdht
+ }
+ 
+ win32 {
+diff --git a/retroshare-nogui/src/retroshare-nogui.pro b/retroshare-nogui/src/retroshare-nogui.pro
+index 138406d..bd8b505 100644
+--- a/retroshare-nogui/src/retroshare-nogui.pro
++++ b/retroshare-nogui/src/retroshare-nogui.pro
+@@ -26,7 +26,7 @@ linux-* {
+ 	QMAKE_CXXFLAGS *= -D_FILE_OFFSET_BITS=64
+ 
+ 	LIBS += ../../libretroshare/src/lib/libretroshare.a
+-	LIBS += ../../openpgpsdk/src/lib/libops.a -lbz2
++	LIBS += -lops -lbz2
+ 	LIBS += -lssl -lupnp -lixml -lgnome-keyring -lpthread
+ 	LIBS *= -lcrypto -ldl -lz
+ 
+@@ -72,10 +72,9 @@ win32 {
+ 	MOC_DIR = temp/moc
+ 
+ 	PRE_TARGETDEPS *= ../../libretroshare/src/lib/libretroshare.a
+-	PRE_TARGETDEPS *= ../../openpgpsdk/src/lib/libops.a
+ 
+ 	LIBS += ../../libretroshare/src/lib/libretroshare.a
+-	LIBS += ../../openpgpsdk/src/lib/libops.a -lbz2
++	LIBS += -lops -lbz2
+ 	LIBS += -L"../../../lib" -lssl -lcrypto -lpthreadGC2d -lminiupnpc -lz
+ 	LIBS += -lssl -lcrypto -lpthreadGC2d -lminiupnpc -lz
+ # added after bitdht
+@@ -124,7 +123,8 @@ freebsd-* {
+ 
+ # bitdht config
+ bitdht {
+-	LIBS += ../../libbitdht/src/lib/libbitdht.a
++	LIBS += -lbitdht
++	INCLUDEPATH += /usr/include/bitdht
+ }
+ 
+ DEPENDPATH += ../../libretroshare/src
