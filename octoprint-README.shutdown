@@ -10,7 +10,7 @@ under (defaults to octoprint):
 octoprint ALL=NOPASSWD: /sbin/shutdown
 ^D
 
-Then add the following lines to your /home/octoprint/.octoprint/config.yaml
+Then add the following lines to your /var/octoprint/.octoprint/config.yaml
 (if it doesn't exist yet just create it as octoprint user):
 
 # su octoprint
