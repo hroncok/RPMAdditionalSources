@@ -1,0 +1,14 @@
+[Unit]
+Description=OctoPrint 3D Printing Web Server
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=su octoprint -c '/usr/bin/octoprint-run --daemon start --pid /run/octoprint.pid'
+ExecStop=su octoprint -c '/usr/bin/octoprint-run --daemon stop --pid /run/octoprint.pid'
+StandardOutput=tty
+StandardError=tty
+
+[Install]
+WantedBy=multi-user.target
