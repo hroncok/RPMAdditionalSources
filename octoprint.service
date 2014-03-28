@@ -1,13 +1,13 @@
 [Unit]
 Description=OctoPrint 3D Printing Web Server
-After=network.target
+After=network.target systemd-tmpfiles-setup.service
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/su octoprint -c '/usr/bin/octoprint-run --daemon start --pid /var/octoprint/octoprint.pid'
-ExecStop=/usr/bin/su octoprint -c '/usr/bin/octoprint-run --daemon stop --pid /var/octoprint/octoprint.pid'
-ExecRestart=/usr/bin/su octoprint -c '/usr/bin/octoprint-run --daemon restart --pid /var/octoprint/octoprint.pid'
+ExecStart=/usr/bin/su octoprint -c '/usr/bin/octoprint-run --daemon start --pid /run/octoprint/octoprint.pid'
+ExecStop=/usr/bin/su octoprint -c '/usr/bin/octoprint-run --daemon stop --pid /run/octoprint/octoprint.pid'
+ExecRestart=/usr/bin/su octoprint -c '/usr/bin/octoprint-run --daemon restart --pid /run/octoprint/octoprint.pid'
 StandardOutput=tty
 StandardError=tty
 
